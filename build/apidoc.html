@@ -1,0 +1,2755 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/shama/gaze"
+
+    >gaze (v1.1.2)</a>
+</h1>
+<h4>A globbing fs.watch wrapper built from the best parts of other fine watch libs.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze">module gaze</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.gaze">
+            function <span class="apidocSignatureSpan"></span>gaze
+            <span class="apidocSignatureSpan">(patterns, opts, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze
+            <span class="apidocSignatureSpan">(patterns, opts, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._addToWatched">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._addToWatched
+            <span class="apidocSignatureSpan">(files)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._handleError">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._handleError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._initWatched">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._initWatched
+            <span class="apidocSignatureSpan">(done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._internalAdd">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._internalAdd
+            <span class="apidocSignatureSpan">(file, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._pollFile">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._pollFile
+            <span class="apidocSignatureSpan">(file, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._unpollDir">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._unpollDir
+            <span class="apidocSignatureSpan">(dir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._unpollFile">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._unpollFile
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._watchDir">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._watchDir
+            <span class="apidocSignatureSpan">(dir, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.add">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.add
+            <span class="apidocSignatureSpan">(files, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.close">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.close
+            <span class="apidocSignatureSpan">(_reset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.emit">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.emit
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.relative">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.relative
+            <span class="apidocSignatureSpan">(dir, unixify)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.remove">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.remove
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.watched">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.watched
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.toString">
+            function <span class="apidocSignatureSpan">gaze.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gaze.</span>helper</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze">module gaze.Gaze</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.Gaze">
+            function <span class="apidocSignatureSpan">gaze.</span>Gaze
+            <span class="apidocSignatureSpan">(patterns, opts, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.super_">
+            function <span class="apidocSignatureSpan">gaze.Gaze.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype">module gaze.Gaze.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._addToWatched">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_addToWatched
+            <span class="apidocSignatureSpan">(files)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._handleError">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_handleError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._initWatched">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_initWatched
+            <span class="apidocSignatureSpan">(done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._internalAdd">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_internalAdd
+            <span class="apidocSignatureSpan">(file, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._pollFile">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_pollFile
+            <span class="apidocSignatureSpan">(file, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._unpollDir">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_unpollDir
+            <span class="apidocSignatureSpan">(dir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._unpollFile">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_unpollFile
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._watchDir">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_watchDir
+            <span class="apidocSignatureSpan">(dir, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.add">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>add
+            <span class="apidocSignatureSpan">(files, done)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.close">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>close
+            <span class="apidocSignatureSpan">(_reset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.emit">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>emit
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.relative">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>relative
+            <span class="apidocSignatureSpan">(dir, unixify)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.remove">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>remove
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.watched">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>watched
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype._addToWatched">module gaze.Gaze.prototype._addToWatched</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._addToWatched._addToWatched">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_addToWatched
+            <span class="apidocSignatureSpan">(files)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype._handleError">module gaze.Gaze.prototype._handleError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._handleError._handleError">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_handleError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype._initWatched">module gaze.Gaze.prototype._initWatched</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._initWatched._initWatched">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_initWatched
+            <span class="apidocSignatureSpan">(done)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype._internalAdd">module gaze.Gaze.prototype._internalAdd</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._internalAdd._internalAdd">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_internalAdd
+            <span class="apidocSignatureSpan">(file, done)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype._pollFile">module gaze.Gaze.prototype._pollFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._pollFile._pollFile">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_pollFile
+            <span class="apidocSignatureSpan">(file, done)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype._unpollDir">module gaze.Gaze.prototype._unpollDir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._unpollDir._unpollDir">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_unpollDir
+            <span class="apidocSignatureSpan">(dir)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype._unpollFile">module gaze.Gaze.prototype._unpollFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._unpollFile._unpollFile">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_unpollFile
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype._watchDir">module gaze.Gaze.prototype._watchDir</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype._watchDir._watchDir">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_watchDir
+            <span class="apidocSignatureSpan">(dir, done)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype.add">module gaze.Gaze.prototype.add</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.add.add">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>add
+            <span class="apidocSignatureSpan">(files, done)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype.close">module gaze.Gaze.prototype.close</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.close.close">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>close
+            <span class="apidocSignatureSpan">(_reset)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype.emit">module gaze.Gaze.prototype.emit</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.emit.emit">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>emit
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype.relative">module gaze.Gaze.prototype.relative</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.relative.relative">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>relative
+            <span class="apidocSignatureSpan">(dir, unixify)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype.remove">module gaze.Gaze.prototype.remove</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.remove.remove">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>remove
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.Gaze.prototype.watched">module gaze.Gaze.prototype.watched</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.Gaze.prototype.watched.watched">
+            function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>watched
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.helper">module gaze.helper</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.helper.forEachSeries">
+            function <span class="apidocSignatureSpan">gaze.helper.</span>forEachSeries
+            <span class="apidocSignatureSpan">(arr, iterator, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.helper.isDir">
+            function <span class="apidocSignatureSpan">gaze.helper.</span>isDir
+            <span class="apidocSignatureSpan">(dir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.helper.markDir">
+            function <span class="apidocSignatureSpan">gaze.helper.</span>markDir
+            <span class="apidocSignatureSpan">(dir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.helper.objectPush">
+            function <span class="apidocSignatureSpan">gaze.helper.</span>objectPush
+            <span class="apidocSignatureSpan">(obj, key, val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.helper.unique">
+            function <span class="apidocSignatureSpan">gaze.helper.</span>unique
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.helper.unixifyPathSep">
+            function <span class="apidocSignatureSpan">gaze.helper.</span>unixifyPathSep
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gaze.toString">module gaze.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gaze.toString.toString">
+            function <span class="apidocSignatureSpan">gaze.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze" id="apidoc.module.gaze">module gaze</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.gaze" id="apidoc.element.gaze.gaze">
+        function <span class="apidocSignatureSpan"></span>gaze
+        <span class="apidocSignatureSpan">(patterns, opts, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function gaze(patterns, opts, done) {
+  return new Gaze(patterns, opts, done);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze" id="apidoc.element.gaze.Gaze">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze
+        <span class="apidocSignatureSpan">(patterns, opts, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Gaze(patterns, opts, done) {
+  var self = this;
+  EE.call(self);
+
+  // If second arg is the callback
+  if (typeof opts === &#x27;function&#x27;) {
+    done = opts;
+    opts = {};
+  }
+
+  // Default options
+  opts = opts || {};
+  opts.mark = true;
+  opts.interval = opts.interval || 100;
+  opts.debounceDelay = opts.debounceDelay || 500;
+  opts.cwd = opts.cwd || process.cwd();
+  this.options = opts;
+
+  // Default done callback
+  done = done || function () {};
+
+  // Remember our watched dir:files
+  this._watched = Object.create(null);
+
+  // Store watchers
+  this._watchers = Object.create(null);
+
+  // Store watchFile listeners
+  this._pollers = Object.create(null);
+
+  // Store patterns
+  this._patterns = [];
+
+  // Cached events for debouncing
+  this._cached = Object.create(null);
+
+  // Set maxListeners
+  if (this.options.maxListeners != null) {
+    this.setMaxListeners(this.options.maxListeners);
+    Gaze.super_.prototype.setMaxListeners(this.options.maxListeners);
+    delete this.options.maxListeners;
+  }
+
+  // Initialize the watch on files
+  if (patterns) {
+    this.add(patterns, done);
+  }
+
+  // keep the process alive
+  this._keepalive = setInterval(function () {}, 200);
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._addToWatched" id="apidoc.element.gaze.Gaze.prototype._addToWatched">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._addToWatched
+        <span class="apidocSignatureSpan">(files)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype._addToWatched = function (files) {
+  for (var i = 0; i &#x3c; files.length; i++) {
+    var file = files[i];
+    var filepath = path.resolve(this.options.cwd, file);
+
+    var dirname = (helper.isDir(file)) ? filepath : path.dirname(filepath);
+    dirname = helper.markDir(dirname);
+
+    // If a new dir is added
+    if (helper.isDir(file) &#x26;&#x26; !(dirname in this._watched)) {
+      helper.objectPush(this._watched, dirname, []);
+    }
+
+    if (file.slice(-1) === &#x27;/&#x27;) { filepath += path.sep; }
+    helper.objectPush(this._watched, path.dirname(filepath) + path.sep, filepath);
+
+    // add folders into the mix
+    var readdir = fs.readdirSync(dirname);
+    for (var j = 0; j &#x3c; readdir.length; j++) {
+      var dirfile = path.join(dirname, readdir[j]);
+      if (fs.lstatSync(dirfile).isDirectory()) {
+        helper.objectPush(this._watched, dirname, dirfile + path.sep);
+      }
+    }
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._handleError" id="apidoc.element.gaze.Gaze.prototype._handleError">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._handleError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype._handleError = function (err) {
+  if (err.code === &#x27;EMFILE&#x27;) {
+    return this.emit(&#x27;error&#x27;, new Error(&#x27;EMFILE: Too many opened files.&#x27;));
+  }
+  return this.emit(&#x27;error&#x27;, err);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._initWatched" id="apidoc.element.gaze.Gaze.prototype._initWatched">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._initWatched
+        <span class="apidocSignatureSpan">(done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype._initWatched = function (done) {
+  var self = this;
+  var cwd = this.options.cwd || process.cwd();
+  var curWatched = Object.keys(self._watched);
+
+  // if no matching files
+  if (curWatched.length &#x3c; 1) {
+    // Defer to emitting to give a chance to attach event handlers.
+    setImmediate(function () {
+      self.emit(&#x27;ready&#x27;, self);
+      if (done) { done.call(self, null, self); }
+      self.emit(&#x27;nomatch&#x27;);
+    });
+    return;
+  }
+
+  helper.forEachSeries(curWatched, function (dir, next) {
+    dir = dir || &#x27;&#x27;;
+    var files = self._watched[dir];
+    // Triggered when a watched dir has an event
+    self._watchDir(dir, function (event, dirpath) {
+      var relDir = cwd === dir ? &#x27;.&#x27; : path.relative(cwd, dir);
+      relDir = relDir || &#x27;&#x27;;
+
+      fs.readdir(dirpath, function (err, current) {
+        if (err) { return self.emit(&#x27;error&#x27;, err); }
+        if (!current) { return; }
+
+        try {
+          // append path.sep to directories so they match previous.
+          current = current.map(function (curPath) {
+            if (fs.existsSync(path.join(dir, curPath)) &#x26;&#x26; fs.lstatSync(path.join(dir, curPath)).isDirectory()) {
+              return curPath + path.sep;
+            } else {
+              return curPath;
+            }
+          });
+        } catch (err) {
+          // race condition-- sometimes the file no longer exists
+        }
+
+        // Get watched files for this dir
+        var previous = self.relative(relDir);
+
+        // If file was deleted
+        previous.filter(function (file) {
+          return current.indexOf(file) &#x3c; 0;
+        }).forEach(function (file) {
+          if (!helper.isDir(file)) {
+            var filepath = path.join(dir, file);
+            self.remove(filepath);
+            self.emit(&#x27;deleted&#x27;, filepath);
+          }
+        });
+
+        // If file was added
+        current.filter(function (file) {
+          return previous.indexOf(file) &#x3c; 0;
+        }).forEach(function (file) {
+          // Is it a matching pattern?
+          var relFile = path.join(relDir, file);
+          // Add to watch then emit event
+          self._internalAdd(relFile, function () {
+            self.emit(&#x27;added&#x27;, path.join(dir, file));
+          });
+        });
+      });
+    });
+
+    // Watch for change/rename events on files
+    files.forEach(function (file) {
+      if (helper.isDir(file)) { return; }
+      self._pollFile(file, function (err, filepath) {
+        if (err) {
+          self.emit(&#x27;error&#x27;, err);
+          return;
+        }
+        // Only emit changed if the file still exists
+        // Prevents changed/deleted duplicate events
+        if (fs.existsSync(filepath)) {
+          self.emit(&#x27;changed&#x27;, filepath);
+        }
+      });
+    });
+
+    next();
+  }, function () {
+    // Return this instance of Gaze
+    // delay before ready solves a lot of issues
+    setTimeout(function () {
+      self.emit(&#x27;ready&#x27;, self);
+      if (done) { done.call(self, null, self); }
+    }, delay + 100);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._internalAdd" id="apidoc.element.gaze.Gaze.prototype._internalAdd">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._internalAdd
+        <span class="apidocSignatureSpan">(file, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype._internalAdd = function (file, done) {
+  var files = [];
+  if (helper.isDir(file)) {
+    files = [helper.markDir(file)].concat(globule.find(this._patterns, this.options));
+  } else {
+    if (globule.isMatch(this._patterns, file, this.options)) {
+      files = [file];
+    }
+  }
+  if (files.length &#x3e; 0) {
+    this._addToWatched(files);
+    this.close(false);
+    this._initWatched(done);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._pollFile" id="apidoc.element.gaze.Gaze.prototype._pollFile">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._pollFile
+        <span class="apidocSignatureSpan">(file, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype._pollFile = function (file, done) {
+  var opts = { persistent: true, interval: this.options.interval };
+  if (!this._pollers[file]) {
+    this._pollers[file] = function (curr, prev) {
+      done(null, file);
+    };
+    try {
+      fs.watchFile(file, opts, this._pollers[file]);
+    } catch (err) {
+      return this._handleError(err);
+    }
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._unpollDir" id="apidoc.element.gaze.Gaze.prototype._unpollDir">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._unpollDir
+        <span class="apidocSignatureSpan">(dir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype._unpollDir = function (dir) {
+  this._unpollFile(dir);
+  for (var i = 0; i &#x3c; this._watched[dir].length; i++) {
+    this._unpollFile(this._watched[dir][i]);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._unpollFile" id="apidoc.element.gaze.Gaze.prototype._unpollFile">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._unpollFile
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype._unpollFile = function (file) {
+  if (this._pollers[file]) {
+    fs.unwatchFile(file, this._pollers[file]);
+    delete this._pollers[file];
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._watchDir" id="apidoc.element.gaze.Gaze.prototype._watchDir">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype._watchDir
+        <span class="apidocSignatureSpan">(dir, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype._watchDir = function (dir, done) {
+  var self = this;
+  var timeoutId;
+  try {
+    this._watchers[dir] = fs.watch(dir, function (event) {
+      // race condition. Let&#x27;s give the fs a little time to settle down. so we
+      // don&#x27;t fire events on non existent files.
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(function () {
+        // race condition. Ensure that this directory is still being watched
+        // before continuing.
+        if ((dir in self._watchers) &#x26;&#x26; fs.existsSync(dir)) {
+          done(null, dir);
+        }
+      }, delay + 100);
+    });
+
+    this._watchers[dir].on(&#x27;error&#x27;, function (err) {
+      self._handleError(err);
+    });
+  } catch (err) {
+    return this._handleError(err);
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.add" id="apidoc.element.gaze.Gaze.prototype.add">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.add
+        <span class="apidocSignatureSpan">(files, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype.add = function (files, done) {
+  if (typeof files === &#x27;string&#x27;) { files = [files]; }
+  this._patterns = helper.unique.apply(null, [this._patterns, files]);
+  files = globule.find(this._patterns, this.options);
+  this._addToWatched(files);
+  this.close(false);
+  this._initWatched(done);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.close" id="apidoc.element.gaze.Gaze.prototype.close">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.close
+        <span class="apidocSignatureSpan">(_reset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype.close = function (_reset) {
+  var self = this;
+  Object.keys(self._watchers).forEach(function (file) {
+    self._watchers[file].close();
+  });
+  self._watchers = Object.create(null);
+  Object.keys(this._watched).forEach(function (dir) {
+    self._unpollDir(dir);
+  });
+  if (_reset !== false) {
+    self._watched = Object.create(null);
+    setTimeout(function () {
+      self.emit(&#x27;end&#x27;);
+      self.removeAllListeners();
+      clearInterval(self._keepalive);
+    }, delay + 100);
+  }
+  return self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.emit" id="apidoc.element.gaze.Gaze.prototype.emit">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.emit
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype.emit = function () {
+  var self = this;
+  var args = arguments;
+
+  var e = args[0];
+  var filepath = args[1];
+  var timeoutId;
+
+  // If not added/deleted/changed/renamed then just emit the event
+  if (e.slice(-2) !== &#x27;ed&#x27;) {
+    Gaze.super_.prototype.emit.apply(self, args);
+    return this;
+  }
+
+  // Detect rename event, if added and previous deleted is in the cache
+  if (e === &#x27;added&#x27;) {
+    Object.keys(this._cached).forEach(function (oldFile) {
+      if (self._cached[oldFile].indexOf(&#x27;deleted&#x27;) !== -1) {
+        args[0] = e = &#x27;renamed&#x27;;
+        [].push.call(args, oldFile);
+        delete self._cached[oldFile];
+        return false;
+      }
+    });
+  }
+
+  // If cached doesnt exist, create a delay before running the next
+  // then emit the event
+  var cache = this._cached[filepath] || [];
+  if (cache.indexOf(e) === -1) {
+    helper.objectPush(self._cached, filepath, e);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function () {
+      delete self._cached[filepath];
+    }, this.options.debounceDelay);
+    // Emit the event and `all` event
+    Gaze.super_.prototype.emit.apply(self, args);
+    Gaze.super_.prototype.emit.apply(self, [&#x27;all&#x27;, e].concat([].slice.call(args, 1)));
+  }
+
+  // Detect if new folder added to trigger for matching files within folder
+  if (e === &#x27;added&#x27;) {
+    if (helper.isDir(filepath)) {
+      // It&#x27;s possible that between `isDir` and `readdirSync()` calls the `filepath`
+      // gets removed, which will result in `ENOENT` exception
+
+      var files;
+
+      try {
+        files = fs.readdirSync(filepath);
+      } catch (e) {
+        // Rethrow the error if it&#x27;s anything other than `ENOENT`
+        if (e.code !== &#x27;ENOENT&#x27;) {
+          throw e;
+        }
+
+        files = [];
+      }
+
+      files.map(function (file) {
+        return path.join(filepath, file);
+      }).filter(function (file) {
+        return globule.isMatch(self._patterns, file, self.options);
+      }).forEach(function (file) {
+        self.emit(&#x27;added&#x27;, file);
+      });
+    }
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.relative" id="apidoc.element.gaze.Gaze.prototype.relative">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.relative
+        <span class="apidocSignatureSpan">(dir, unixify)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype.relative = function (dir, unixify) {
+  var self = this;
+  var relative = Object.create(null);
+  var relDir, relFile, unixRelDir;
+  var cwd = this.options.cwd || process.cwd();
+  if (dir === &#x27;&#x27;) { dir = &#x27;.&#x27;; }
+  dir = helper.markDir(dir);
+  unixify = unixify || false;
+  Object.keys(this._watched).forEach(function (dir) {
+    relDir = path.relative(cwd, dir) + path.sep;
+    if (relDir === path.sep) { relDir = &#x27;.&#x27;; }
+    unixRelDir = unixify ? helper.unixifyPathSep(relDir) : relDir;
+    relative[unixRelDir] = self._watched[dir].map(function (file) {
+      relFile = path.relative(path.join(cwd, relDir) || &#x27;&#x27;, file || &#x27;&#x27;);
+      if (helper.isDir(file)) {
+        relFile = helper.markDir(relFile);
+      }
+      if (unixify) {
+        relFile = helper.unixifyPathSep(relFile);
+      }
+      return relFile;
+    });
+  });
+  if (dir &#x26;&#x26; unixify) {
+    dir = helper.unixifyPathSep(dir);
+  }
+  return dir ? relative[dir] || [] : relative;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.remove" id="apidoc.element.gaze.Gaze.prototype.remove">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.remove
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype.remove = function (file) {
+  var self = this;
+  if (this._watched[file]) {
+    // is dir, remove all files
+    this._unpollDir(file);
+    delete this._watched[file];
+  } else {
+    // is a file, find and remove
+    Object.keys(this._watched).forEach(function (dir) {
+      var index = self._watched[dir].indexOf(file);
+      if (index !== -1) {
+        self._unpollFile(file);
+        self._watched[dir].splice(index, 1);
+        return false;
+      }
+    });
+  }
+  if (this._watchers[file]) {
+    this._watchers[file].close();
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.watched" id="apidoc.element.gaze.Gaze.prototype.watched">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze.prototype.watched
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Gaze.prototype.watched = function () {
+  return this._watched;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.toString" id="apidoc.element.gaze.toString">
+        function <span class="apidocSignatureSpan">gaze.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze" id="apidoc.module.gaze.Gaze">module gaze.Gaze</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.Gaze" id="apidoc.element.gaze.Gaze.Gaze">
+        function <span class="apidocSignatureSpan">gaze.</span>Gaze
+        <span class="apidocSignatureSpan">(patterns, opts, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Gaze(patterns, opts, done) {
+  var self = this;
+  EE.call(self);
+
+  // If second arg is the callback
+  if (typeof opts === &#x27;function&#x27;) {
+    done = opts;
+    opts = {};
+  }
+
+  // Default options
+  opts = opts || {};
+  opts.mark = true;
+  opts.interval = opts.interval || 100;
+  opts.debounceDelay = opts.debounceDelay || 500;
+  opts.cwd = opts.cwd || process.cwd();
+  this.options = opts;
+
+  // Default done callback
+  done = done || function () {};
+
+  // Remember our watched dir:files
+  this._watched = Object.create(null);
+
+  // Store watchers
+  this._watchers = Object.create(null);
+
+  // Store watchFile listeners
+  this._pollers = Object.create(null);
+
+  // Store patterns
+  this._patterns = [];
+
+  // Cached events for debouncing
+  this._cached = Object.create(null);
+
+  // Set maxListeners
+  if (this.options.maxListeners != null) {
+    this.setMaxListeners(this.options.maxListeners);
+    Gaze.super_.prototype.setMaxListeners(this.options.maxListeners);
+    delete this.options.maxListeners;
+  }
+
+  // Initialize the watch on files
+  if (patterns) {
+    this.add(patterns, done);
+  }
+
+  // keep the process alive
+  this._keepalive = setInterval(function () {}, 200);
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.super_" id="apidoc.element.gaze.Gaze.super_">
+        function <span class="apidocSignatureSpan">gaze.Gaze.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype" id="apidoc.module.gaze.Gaze.prototype">module gaze.Gaze.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._addToWatched" id="apidoc.element.gaze.Gaze.prototype._addToWatched">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_addToWatched
+        <span class="apidocSignatureSpan">(files)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_addToWatched = function (files) {
+  for (var i = 0; i &#x3c; files.length; i++) {
+    var file = files[i];
+    var filepath = path.resolve(this.options.cwd, file);
+
+    var dirname = (helper.isDir(file)) ? filepath : path.dirname(filepath);
+    dirname = helper.markDir(dirname);
+
+    // If a new dir is added
+    if (helper.isDir(file) &#x26;&#x26; !(dirname in this._watched)) {
+      helper.objectPush(this._watched, dirname, []);
+    }
+
+    if (file.slice(-1) === &#x27;/&#x27;) { filepath += path.sep; }
+    helper.objectPush(this._watched, path.dirname(filepath) + path.sep, filepath);
+
+    // add folders into the mix
+    var readdir = fs.readdirSync(dirname);
+    for (var j = 0; j &#x3c; readdir.length; j++) {
+      var dirfile = path.join(dirname, readdir[j]);
+      if (fs.lstatSync(dirfile).isDirectory()) {
+        helper.objectPush(this._watched, dirname, dirfile + path.sep);
+      }
+    }
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._handleError" id="apidoc.element.gaze.Gaze.prototype._handleError">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_handleError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleError = function (err) {
+  if (err.code === &#x27;EMFILE&#x27;) {
+    return this.emit(&#x27;error&#x27;, new Error(&#x27;EMFILE: Too many opened files.&#x27;));
+  }
+  return this.emit(&#x27;error&#x27;, err);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._initWatched" id="apidoc.element.gaze.Gaze.prototype._initWatched">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_initWatched
+        <span class="apidocSignatureSpan">(done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_initWatched = function (done) {
+  var self = this;
+  var cwd = this.options.cwd || process.cwd();
+  var curWatched = Object.keys(self._watched);
+
+  // if no matching files
+  if (curWatched.length &#x3c; 1) {
+    // Defer to emitting to give a chance to attach event handlers.
+    setImmediate(function () {
+      self.emit(&#x27;ready&#x27;, self);
+      if (done) { done.call(self, null, self); }
+      self.emit(&#x27;nomatch&#x27;);
+    });
+    return;
+  }
+
+  helper.forEachSeries(curWatched, function (dir, next) {
+    dir = dir || &#x27;&#x27;;
+    var files = self._watched[dir];
+    // Triggered when a watched dir has an event
+    self._watchDir(dir, function (event, dirpath) {
+      var relDir = cwd === dir ? &#x27;.&#x27; : path.relative(cwd, dir);
+      relDir = relDir || &#x27;&#x27;;
+
+      fs.readdir(dirpath, function (err, current) {
+        if (err) { return self.emit(&#x27;error&#x27;, err); }
+        if (!current) { return; }
+
+        try {
+          // append path.sep to directories so they match previous.
+          current = current.map(function (curPath) {
+            if (fs.existsSync(path.join(dir, curPath)) &#x26;&#x26; fs.lstatSync(path.join(dir, curPath)).isDirectory()) {
+              return curPath + path.sep;
+            } else {
+              return curPath;
+            }
+          });
+        } catch (err) {
+          // race condition-- sometimes the file no longer exists
+        }
+
+        // Get watched files for this dir
+        var previous = self.relative(relDir);
+
+        // If file was deleted
+        previous.filter(function (file) {
+          return current.indexOf(file) &#x3c; 0;
+        }).forEach(function (file) {
+          if (!helper.isDir(file)) {
+            var filepath = path.join(dir, file);
+            self.remove(filepath);
+            self.emit(&#x27;deleted&#x27;, filepath);
+          }
+        });
+
+        // If file was added
+        current.filter(function (file) {
+          return previous.indexOf(file) &#x3c; 0;
+        }).forEach(function (file) {
+          // Is it a matching pattern?
+          var relFile = path.join(relDir, file);
+          // Add to watch then emit event
+          self._internalAdd(relFile, function () {
+            self.emit(&#x27;added&#x27;, path.join(dir, file));
+          });
+        });
+      });
+    });
+
+    // Watch for change/rename events on files
+    files.forEach(function (file) {
+      if (helper.isDir(file)) { return; }
+      self._pollFile(file, function (err, filepath) {
+        if (err) {
+          self.emit(&#x27;error&#x27;, err);
+          return;
+        }
+        // Only emit changed if the file still exists
+        // Prevents changed/deleted duplicate events
+        if (fs.existsSync(filepath)) {
+          self.emit(&#x27;changed&#x27;, filepath);
+        }
+      });
+    });
+
+    next();
+  }, function () {
+    // Return this instance of Gaze
+    // delay before ready solves a lot of issues
+    setTimeout(function () {
+      self.emit(&#x27;ready&#x27;, self);
+      if (done) { done.call(self, null, self); }
+    }, delay + 100);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._internalAdd" id="apidoc.element.gaze.Gaze.prototype._internalAdd">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_internalAdd
+        <span class="apidocSignatureSpan">(file, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_internalAdd = function (file, done) {
+  var files = [];
+  if (helper.isDir(file)) {
+    files = [helper.markDir(file)].concat(globule.find(this._patterns, this.options));
+  } else {
+    if (globule.isMatch(this._patterns, file, this.options)) {
+      files = [file];
+    }
+  }
+  if (files.length &#x3e; 0) {
+    this._addToWatched(files);
+    this.close(false);
+    this._initWatched(done);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._pollFile" id="apidoc.element.gaze.Gaze.prototype._pollFile">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_pollFile
+        <span class="apidocSignatureSpan">(file, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_pollFile = function (file, done) {
+  var opts = { persistent: true, interval: this.options.interval };
+  if (!this._pollers[file]) {
+    this._pollers[file] = function (curr, prev) {
+      done(null, file);
+    };
+    try {
+      fs.watchFile(file, opts, this._pollers[file]);
+    } catch (err) {
+      return this._handleError(err);
+    }
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._unpollDir" id="apidoc.element.gaze.Gaze.prototype._unpollDir">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_unpollDir
+        <span class="apidocSignatureSpan">(dir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_unpollDir = function (dir) {
+  this._unpollFile(dir);
+  for (var i = 0; i &#x3c; this._watched[dir].length; i++) {
+    this._unpollFile(this._watched[dir][i]);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._unpollFile" id="apidoc.element.gaze.Gaze.prototype._unpollFile">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_unpollFile
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_unpollFile = function (file) {
+  if (this._pollers[file]) {
+    fs.unwatchFile(file, this._pollers[file]);
+    delete this._pollers[file];
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._watchDir" id="apidoc.element.gaze.Gaze.prototype._watchDir">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_watchDir
+        <span class="apidocSignatureSpan">(dir, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_watchDir = function (dir, done) {
+  var self = this;
+  var timeoutId;
+  try {
+    this._watchers[dir] = fs.watch(dir, function (event) {
+      // race condition. Let&#x27;s give the fs a little time to settle down. so we
+      // don&#x27;t fire events on non existent files.
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(function () {
+        // race condition. Ensure that this directory is still being watched
+        // before continuing.
+        if ((dir in self._watchers) &#x26;&#x26; fs.existsSync(dir)) {
+          done(null, dir);
+        }
+      }, delay + 100);
+    });
+
+    this._watchers[dir].on(&#x27;error&#x27;, function (err) {
+      self._handleError(err);
+    });
+  } catch (err) {
+    return this._handleError(err);
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.add" id="apidoc.element.gaze.Gaze.prototype.add">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>add
+        <span class="apidocSignatureSpan">(files, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (files, done) {
+  if (typeof files === &#x27;string&#x27;) { files = [files]; }
+  this._patterns = helper.unique.apply(null, [this._patterns, files]);
+  files = globule.find(this._patterns, this.options);
+  this._addToWatched(files);
+  this.close(false);
+  this._initWatched(done);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Get watched files with relative paths
+  var files = this.relative();
+});
+
+// Also accepts an array of patterns
+gaze([&#x27;stylesheets/*.css&#x27;, &#x27;images/**/*.png&#x27;], function() {
+  // Add more patterns later to be watched
+  this.<span class="apidocCodeKeywordSpan">add</span>([&#x27;js/*.js&#x27;]);
+});
+```
+
+### Alternate Interface
+
+```javascript
+var Gaze = require(&#x27;gaze&#x27;).Gaze;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.close" id="apidoc.element.gaze.Gaze.prototype.close">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>close
+        <span class="apidocSignatureSpan">(_reset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (_reset) {
+  var self = this;
+  Object.keys(self._watchers).forEach(function (file) {
+    self._watchers[file].close();
+  });
+  self._watchers = Object.create(null);
+  Object.keys(this._watched).forEach(function (dir) {
+    self._unpollDir(dir);
+  });
+  if (_reset !== false) {
+    self._watched = Object.create(null);
+    setTimeout(function () {
+      self.emit(&#x27;end&#x27;);
+      self.removeAllListeners();
+      clearInterval(self._keepalive);
+    }, delay + 100);
+  }
+  return self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.emit" id="apidoc.element.gaze.Gaze.prototype.emit">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>emit
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">emit = function () {
+  var self = this;
+  var args = arguments;
+
+  var e = args[0];
+  var filepath = args[1];
+  var timeoutId;
+
+  // If not added/deleted/changed/renamed then just emit the event
+  if (e.slice(-2) !== &#x27;ed&#x27;) {
+    Gaze.super_.prototype.emit.apply(self, args);
+    return this;
+  }
+
+  // Detect rename event, if added and previous deleted is in the cache
+  if (e === &#x27;added&#x27;) {
+    Object.keys(this._cached).forEach(function (oldFile) {
+      if (self._cached[oldFile].indexOf(&#x27;deleted&#x27;) !== -1) {
+        args[0] = e = &#x27;renamed&#x27;;
+        [].push.call(args, oldFile);
+        delete self._cached[oldFile];
+        return false;
+      }
+    });
+  }
+
+  // If cached doesnt exist, create a delay before running the next
+  // then emit the event
+  var cache = this._cached[filepath] || [];
+  if (cache.indexOf(e) === -1) {
+    helper.objectPush(self._cached, filepath, e);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function () {
+      delete self._cached[filepath];
+    }, this.options.debounceDelay);
+    // Emit the event and `all` event
+    Gaze.super_.prototype.emit.apply(self, args);
+    Gaze.super_.prototype.emit.apply(self, [&#x27;all&#x27;, e].concat([].slice.call(args, 1)));
+  }
+
+  // Detect if new folder added to trigger for matching files within folder
+  if (e === &#x27;added&#x27;) {
+    if (helper.isDir(filepath)) {
+      // It&#x27;s possible that between `isDir` and `readdirSync()` calls the `filepath`
+      // gets removed, which will result in `ENOENT` exception
+
+      var files;
+
+      try {
+        files = fs.readdirSync(filepath);
+      } catch (e) {
+        // Rethrow the error if it&#x27;s anything other than `ENOENT`
+        if (e.code !== &#x27;ENOENT&#x27;) {
+          throw e;
+        }
+
+        files = [];
+      }
+
+      files.map(function (file) {
+        return path.join(filepath, file);
+      }).filter(function (file) {
+        return globule.isMatch(self._patterns, file, self.options);
+      }).forEach(function (file) {
+        self.emit(&#x27;added&#x27;, file);
+      });
+    }
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.relative" id="apidoc.element.gaze.Gaze.prototype.relative">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>relative
+        <span class="apidocSignatureSpan">(dir, unixify)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">relative = function (dir, unixify) {
+  var self = this;
+  var relative = Object.create(null);
+  var relDir, relFile, unixRelDir;
+  var cwd = this.options.cwd || process.cwd();
+  if (dir === &#x27;&#x27;) { dir = &#x27;.&#x27;; }
+  dir = helper.markDir(dir);
+  unixify = unixify || false;
+  Object.keys(this._watched).forEach(function (dir) {
+    relDir = path.relative(cwd, dir) + path.sep;
+    if (relDir === path.sep) { relDir = &#x27;.&#x27;; }
+    unixRelDir = unixify ? helper.unixifyPathSep(relDir) : relDir;
+    relative[unixRelDir] = self._watched[dir].map(function (file) {
+      relFile = path.relative(path.join(cwd, relDir) || &#x27;&#x27;, file || &#x27;&#x27;);
+      if (helper.isDir(file)) {
+        relFile = helper.markDir(relFile);
+      }
+      if (unixify) {
+        relFile = helper.unixifyPathSep(relFile);
+      }
+      return relFile;
+    });
+  });
+  if (dir &#x26;&#x26; unixify) {
+    dir = helper.unixifyPathSep(dir);
+  }
+  return dir ? relative[dir] || [] : relative;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  // On changed/added/deleted
+  this.on(&#x27;all&#x27;, function(event, filepath) {
+    console.log(filepath + &#x27; was &#x27; + event);
+  });
+
+  // Get watched files with relative paths
+  var files = this.<span class="apidocCodeKeywordSpan">relative</span>();
+});
+
+// Also accepts an array of patterns
+gaze([&#x27;stylesheets/*.css&#x27;, &#x27;images/**/*.png&#x27;], function() {
+  // Add more patterns later to be watched
+  this.add([&#x27;js/*.js&#x27;]);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.remove" id="apidoc.element.gaze.Gaze.prototype.remove">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>remove
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (file) {
+  var self = this;
+  if (this._watched[file]) {
+    // is dir, remove all files
+    this._unpollDir(file);
+    delete this._watched[file];
+  } else {
+    // is a file, find and remove
+    Object.keys(this._watched).forEach(function (dir) {
+      var index = self._watched[dir].indexOf(file);
+      if (index !== -1) {
+        self._unpollFile(file);
+        self._watched[dir].splice(index, 1);
+        return false;
+      }
+    });
+  }
+  if (this._watchers[file]) {
+    this._watchers[file].close();
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* 0.6.2 - Fix argument error with watched(). Fix for erroneous added events on folders. Ignore msvs build error 4244.
+* 0.6.1 - Fix for absolute paths.
+* 0.6.0 - Uses native OS events (fork of pathwatcher) but can fall back to stat polling. Everything is async to avoid blocking,
+including `relative()` and `watched()`. Better error handling. Update to globule@0.2.0. No longer watches `cwd` by default. Added
+ `mode` option. Better `EMFILE` message. Avoids `ENOENT` errors with symlinks. All constructor arguments are optional.
+* 0.5.2 - Fix for ENOENT error with non-existent symlinks [BACKPORTED].
+* 0.5.1 - Use setImmediate (process.nextTick for node v0.8) to defer ready/nomatch events (@amasad).
+* 0.5.0 - Process is now kept alive while watching files. Emits a nomatch event when no files are matching.
+* 0.4.3 - Track file additions in newly created folders (@brett-shwom).
+* 0.4.2 - Fix .<span class="apidocCodeKeywordSpan">remove</span>() method to remove a single file in a directory (@kaelzhang). Fixing
+ Cannot call method &#x27;call&#x27; of undefined (@krasimir). Track new file additions within folders (@brett-shwom).
+* 0.4.1 - Fix watchDir not respecting close in race condition (@chrisirhc).
+* 0.4.0 - Drop support for node v0.6. Use globule for file matching. Avoid node v0.10 path.resolve/join errors. Register new files
+ when added to non-existent folder. Multiple instances can now poll the same files (@jpommerening).
+* 0.3.4 - Code clean up. Fix path must be strings errors (@groner). Fix incorrect added events (@groner).
+* 0.3.3 - Fix for multiple patterns with negate.
+* 0.3.2 - Emit `end` before removeAllListeners.
+* 0.3.1 - Fix added events within subfolder patterns.
+* 0.3.0 - Handle safewrite events, `forceWatchMethod` option removed, bug fixes and watch optimizations (@rgaskill).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.watched" id="apidoc.element.gaze.Gaze.prototype.watched">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>watched
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">watched = function () {
+  return this._watched;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Watch all .js files/dirs in process.cwd()
+gaze(&#x27;**/*.js&#x27;, function(err, watcher) {
+// Files have all started watching
+// watcher === this
+
+// Get all watched files
+var watched = this.<span class="apidocCodeKeywordSpan">watched</span>();
+
+// On file changed
+this.on(&#x27;changed&#x27;, function(filepath) {
+  console.log(filepath + &#x27; was changed&#x27;);
+});
+
+// On file added
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype._addToWatched" id="apidoc.module.gaze.Gaze.prototype._addToWatched">module gaze.Gaze.prototype._addToWatched</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._addToWatched._addToWatched" id="apidoc.element.gaze.Gaze.prototype._addToWatched._addToWatched">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_addToWatched
+        <span class="apidocSignatureSpan">(files)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_addToWatched = function (files) {
+  for (var i = 0; i &#x3c; files.length; i++) {
+    var file = files[i];
+    var filepath = path.resolve(this.options.cwd, file);
+
+    var dirname = (helper.isDir(file)) ? filepath : path.dirname(filepath);
+    dirname = helper.markDir(dirname);
+
+    // If a new dir is added
+    if (helper.isDir(file) &#x26;&#x26; !(dirname in this._watched)) {
+      helper.objectPush(this._watched, dirname, []);
+    }
+
+    if (file.slice(-1) === &#x27;/&#x27;) { filepath += path.sep; }
+    helper.objectPush(this._watched, path.dirname(filepath) + path.sep, filepath);
+
+    // add folders into the mix
+    var readdir = fs.readdirSync(dirname);
+    for (var j = 0; j &#x3c; readdir.length; j++) {
+      var dirfile = path.join(dirname, readdir[j]);
+      if (fs.lstatSync(dirfile).isDirectory()) {
+        helper.objectPush(this._watched, dirname, dirfile + path.sep);
+      }
+    }
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype._handleError" id="apidoc.module.gaze.Gaze.prototype._handleError">module gaze.Gaze.prototype._handleError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._handleError._handleError" id="apidoc.element.gaze.Gaze.prototype._handleError._handleError">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_handleError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleError = function (err) {
+  if (err.code === &#x27;EMFILE&#x27;) {
+    return this.emit(&#x27;error&#x27;, new Error(&#x27;EMFILE: Too many opened files.&#x27;));
+  }
+  return this.emit(&#x27;error&#x27;, err);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype._initWatched" id="apidoc.module.gaze.Gaze.prototype._initWatched">module gaze.Gaze.prototype._initWatched</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._initWatched._initWatched" id="apidoc.element.gaze.Gaze.prototype._initWatched._initWatched">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_initWatched
+        <span class="apidocSignatureSpan">(done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_initWatched = function (done) {
+  var self = this;
+  var cwd = this.options.cwd || process.cwd();
+  var curWatched = Object.keys(self._watched);
+
+  // if no matching files
+  if (curWatched.length &#x3c; 1) {
+    // Defer to emitting to give a chance to attach event handlers.
+    setImmediate(function () {
+      self.emit(&#x27;ready&#x27;, self);
+      if (done) { done.call(self, null, self); }
+      self.emit(&#x27;nomatch&#x27;);
+    });
+    return;
+  }
+
+  helper.forEachSeries(curWatched, function (dir, next) {
+    dir = dir || &#x27;&#x27;;
+    var files = self._watched[dir];
+    // Triggered when a watched dir has an event
+    self._watchDir(dir, function (event, dirpath) {
+      var relDir = cwd === dir ? &#x27;.&#x27; : path.relative(cwd, dir);
+      relDir = relDir || &#x27;&#x27;;
+
+      fs.readdir(dirpath, function (err, current) {
+        if (err) { return self.emit(&#x27;error&#x27;, err); }
+        if (!current) { return; }
+
+        try {
+          // append path.sep to directories so they match previous.
+          current = current.map(function (curPath) {
+            if (fs.existsSync(path.join(dir, curPath)) &#x26;&#x26; fs.lstatSync(path.join(dir, curPath)).isDirectory()) {
+              return curPath + path.sep;
+            } else {
+              return curPath;
+            }
+          });
+        } catch (err) {
+          // race condition-- sometimes the file no longer exists
+        }
+
+        // Get watched files for this dir
+        var previous = self.relative(relDir);
+
+        // If file was deleted
+        previous.filter(function (file) {
+          return current.indexOf(file) &#x3c; 0;
+        }).forEach(function (file) {
+          if (!helper.isDir(file)) {
+            var filepath = path.join(dir, file);
+            self.remove(filepath);
+            self.emit(&#x27;deleted&#x27;, filepath);
+          }
+        });
+
+        // If file was added
+        current.filter(function (file) {
+          return previous.indexOf(file) &#x3c; 0;
+        }).forEach(function (file) {
+          // Is it a matching pattern?
+          var relFile = path.join(relDir, file);
+          // Add to watch then emit event
+          self._internalAdd(relFile, function () {
+            self.emit(&#x27;added&#x27;, path.join(dir, file));
+          });
+        });
+      });
+    });
+
+    // Watch for change/rename events on files
+    files.forEach(function (file) {
+      if (helper.isDir(file)) { return; }
+      self._pollFile(file, function (err, filepath) {
+        if (err) {
+          self.emit(&#x27;error&#x27;, err);
+          return;
+        }
+        // Only emit changed if the file still exists
+        // Prevents changed/deleted duplicate events
+        if (fs.existsSync(filepath)) {
+          self.emit(&#x27;changed&#x27;, filepath);
+        }
+      });
+    });
+
+    next();
+  }, function () {
+    // Return this instance of Gaze
+    // delay before ready solves a lot of issues
+    setTimeout(function () {
+      self.emit(&#x27;ready&#x27;, self);
+      if (done) { done.call(self, null, self); }
+    }, delay + 100);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype._internalAdd" id="apidoc.module.gaze.Gaze.prototype._internalAdd">module gaze.Gaze.prototype._internalAdd</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._internalAdd._internalAdd" id="apidoc.element.gaze.Gaze.prototype._internalAdd._internalAdd">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_internalAdd
+        <span class="apidocSignatureSpan">(file, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_internalAdd = function (file, done) {
+  var files = [];
+  if (helper.isDir(file)) {
+    files = [helper.markDir(file)].concat(globule.find(this._patterns, this.options));
+  } else {
+    if (globule.isMatch(this._patterns, file, this.options)) {
+      files = [file];
+    }
+  }
+  if (files.length &#x3e; 0) {
+    this._addToWatched(files);
+    this.close(false);
+    this._initWatched(done);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype._pollFile" id="apidoc.module.gaze.Gaze.prototype._pollFile">module gaze.Gaze.prototype._pollFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._pollFile._pollFile" id="apidoc.element.gaze.Gaze.prototype._pollFile._pollFile">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_pollFile
+        <span class="apidocSignatureSpan">(file, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_pollFile = function (file, done) {
+  var opts = { persistent: true, interval: this.options.interval };
+  if (!this._pollers[file]) {
+    this._pollers[file] = function (curr, prev) {
+      done(null, file);
+    };
+    try {
+      fs.watchFile(file, opts, this._pollers[file]);
+    } catch (err) {
+      return this._handleError(err);
+    }
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype._unpollDir" id="apidoc.module.gaze.Gaze.prototype._unpollDir">module gaze.Gaze.prototype._unpollDir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._unpollDir._unpollDir" id="apidoc.element.gaze.Gaze.prototype._unpollDir._unpollDir">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_unpollDir
+        <span class="apidocSignatureSpan">(dir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_unpollDir = function (dir) {
+  this._unpollFile(dir);
+  for (var i = 0; i &#x3c; this._watched[dir].length; i++) {
+    this._unpollFile(this._watched[dir][i]);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype._unpollFile" id="apidoc.module.gaze.Gaze.prototype._unpollFile">module gaze.Gaze.prototype._unpollFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._unpollFile._unpollFile" id="apidoc.element.gaze.Gaze.prototype._unpollFile._unpollFile">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_unpollFile
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_unpollFile = function (file) {
+  if (this._pollers[file]) {
+    fs.unwatchFile(file, this._pollers[file]);
+    delete this._pollers[file];
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype._watchDir" id="apidoc.module.gaze.Gaze.prototype._watchDir">module gaze.Gaze.prototype._watchDir</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype._watchDir._watchDir" id="apidoc.element.gaze.Gaze.prototype._watchDir._watchDir">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>_watchDir
+        <span class="apidocSignatureSpan">(dir, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_watchDir = function (dir, done) {
+  var self = this;
+  var timeoutId;
+  try {
+    this._watchers[dir] = fs.watch(dir, function (event) {
+      // race condition. Let&#x27;s give the fs a little time to settle down. so we
+      // don&#x27;t fire events on non existent files.
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(function () {
+        // race condition. Ensure that this directory is still being watched
+        // before continuing.
+        if ((dir in self._watchers) &#x26;&#x26; fs.existsSync(dir)) {
+          done(null, dir);
+        }
+      }, delay + 100);
+    });
+
+    this._watchers[dir].on(&#x27;error&#x27;, function (err) {
+      self._handleError(err);
+    });
+  } catch (err) {
+    return this._handleError(err);
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype.add" id="apidoc.module.gaze.Gaze.prototype.add">module gaze.Gaze.prototype.add</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.add.add" id="apidoc.element.gaze.Gaze.prototype.add.add">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>add
+        <span class="apidocSignatureSpan">(files, done)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (files, done) {
+  if (typeof files === &#x27;string&#x27;) { files = [files]; }
+  this._patterns = helper.unique.apply(null, [this._patterns, files]);
+  files = globule.find(this._patterns, this.options);
+  this._addToWatched(files);
+  this.close(false);
+  this._initWatched(done);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Get watched files with relative paths
+  var files = this.relative();
+});
+
+// Also accepts an array of patterns
+gaze([&#x27;stylesheets/*.css&#x27;, &#x27;images/**/*.png&#x27;], function() {
+  // Add more patterns later to be watched
+  this.<span class="apidocCodeKeywordSpan">add</span>([&#x27;js/*.js&#x27;]);
+});
+```
+
+### Alternate Interface
+
+```javascript
+var Gaze = require(&#x27;gaze&#x27;).Gaze;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype.close" id="apidoc.module.gaze.Gaze.prototype.close">module gaze.Gaze.prototype.close</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.close.close" id="apidoc.element.gaze.Gaze.prototype.close.close">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>close
+        <span class="apidocSignatureSpan">(_reset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (_reset) {
+  var self = this;
+  Object.keys(self._watchers).forEach(function (file) {
+    self._watchers[file].close();
+  });
+  self._watchers = Object.create(null);
+  Object.keys(this._watched).forEach(function (dir) {
+    self._unpollDir(dir);
+  });
+  if (_reset !== false) {
+    self._watched = Object.create(null);
+    setTimeout(function () {
+      self.emit(&#x27;end&#x27;);
+      self.removeAllListeners();
+      clearInterval(self._keepalive);
+    }, delay + 100);
+  }
+  return self;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype.emit" id="apidoc.module.gaze.Gaze.prototype.emit">module gaze.Gaze.prototype.emit</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.emit.emit" id="apidoc.element.gaze.Gaze.prototype.emit.emit">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>emit
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">emit = function () {
+  var self = this;
+  var args = arguments;
+
+  var e = args[0];
+  var filepath = args[1];
+  var timeoutId;
+
+  // If not added/deleted/changed/renamed then just emit the event
+  if (e.slice(-2) !== &#x27;ed&#x27;) {
+    Gaze.super_.prototype.emit.apply(self, args);
+    return this;
+  }
+
+  // Detect rename event, if added and previous deleted is in the cache
+  if (e === &#x27;added&#x27;) {
+    Object.keys(this._cached).forEach(function (oldFile) {
+      if (self._cached[oldFile].indexOf(&#x27;deleted&#x27;) !== -1) {
+        args[0] = e = &#x27;renamed&#x27;;
+        [].push.call(args, oldFile);
+        delete self._cached[oldFile];
+        return false;
+      }
+    });
+  }
+
+  // If cached doesnt exist, create a delay before running the next
+  // then emit the event
+  var cache = this._cached[filepath] || [];
+  if (cache.indexOf(e) === -1) {
+    helper.objectPush(self._cached, filepath, e);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function () {
+      delete self._cached[filepath];
+    }, this.options.debounceDelay);
+    // Emit the event and `all` event
+    Gaze.super_.prototype.emit.apply(self, args);
+    Gaze.super_.prototype.emit.apply(self, [&#x27;all&#x27;, e].concat([].slice.call(args, 1)));
+  }
+
+  // Detect if new folder added to trigger for matching files within folder
+  if (e === &#x27;added&#x27;) {
+    if (helper.isDir(filepath)) {
+      // It&#x27;s possible that between `isDir` and `readdirSync()` calls the `filepath`
+      // gets removed, which will result in `ENOENT` exception
+
+      var files;
+
+      try {
+        files = fs.readdirSync(filepath);
+      } catch (e) {
+        // Rethrow the error if it&#x27;s anything other than `ENOENT`
+        if (e.code !== &#x27;ENOENT&#x27;) {
+          throw e;
+        }
+
+        files = [];
+      }
+
+      files.map(function (file) {
+        return path.join(filepath, file);
+      }).filter(function (file) {
+        return globule.isMatch(self._patterns, file, self.options);
+      }).forEach(function (file) {
+        self.emit(&#x27;added&#x27;, file);
+      });
+    }
+  }
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype.relative" id="apidoc.module.gaze.Gaze.prototype.relative">module gaze.Gaze.prototype.relative</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.relative.relative" id="apidoc.element.gaze.Gaze.prototype.relative.relative">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>relative
+        <span class="apidocSignatureSpan">(dir, unixify)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">relative = function (dir, unixify) {
+  var self = this;
+  var relative = Object.create(null);
+  var relDir, relFile, unixRelDir;
+  var cwd = this.options.cwd || process.cwd();
+  if (dir === &#x27;&#x27;) { dir = &#x27;.&#x27;; }
+  dir = helper.markDir(dir);
+  unixify = unixify || false;
+  Object.keys(this._watched).forEach(function (dir) {
+    relDir = path.relative(cwd, dir) + path.sep;
+    if (relDir === path.sep) { relDir = &#x27;.&#x27;; }
+    unixRelDir = unixify ? helper.unixifyPathSep(relDir) : relDir;
+    relative[unixRelDir] = self._watched[dir].map(function (file) {
+      relFile = path.relative(path.join(cwd, relDir) || &#x27;&#x27;, file || &#x27;&#x27;);
+      if (helper.isDir(file)) {
+        relFile = helper.markDir(relFile);
+      }
+      if (unixify) {
+        relFile = helper.unixifyPathSep(relFile);
+      }
+      return relFile;
+    });
+  });
+  if (dir &#x26;&#x26; unixify) {
+    dir = helper.unixifyPathSep(dir);
+  }
+  return dir ? relative[dir] || [] : relative;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  // On changed/added/deleted
+  this.on(&#x27;all&#x27;, function(event, filepath) {
+    console.log(filepath + &#x27; was &#x27; + event);
+  });
+
+  // Get watched files with relative paths
+  var files = this.<span class="apidocCodeKeywordSpan">relative</span>();
+});
+
+// Also accepts an array of patterns
+gaze([&#x27;stylesheets/*.css&#x27;, &#x27;images/**/*.png&#x27;], function() {
+  // Add more patterns later to be watched
+  this.add([&#x27;js/*.js&#x27;]);
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype.remove" id="apidoc.module.gaze.Gaze.prototype.remove">module gaze.Gaze.prototype.remove</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.remove.remove" id="apidoc.element.gaze.Gaze.prototype.remove.remove">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>remove
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (file) {
+  var self = this;
+  if (this._watched[file]) {
+    // is dir, remove all files
+    this._unpollDir(file);
+    delete this._watched[file];
+  } else {
+    // is a file, find and remove
+    Object.keys(this._watched).forEach(function (dir) {
+      var index = self._watched[dir].indexOf(file);
+      if (index !== -1) {
+        self._unpollFile(file);
+        self._watched[dir].splice(index, 1);
+        return false;
+      }
+    });
+  }
+  if (this._watchers[file]) {
+    this._watchers[file].close();
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* 0.6.2 - Fix argument error with watched(). Fix for erroneous added events on folders. Ignore msvs build error 4244.
+* 0.6.1 - Fix for absolute paths.
+* 0.6.0 - Uses native OS events (fork of pathwatcher) but can fall back to stat polling. Everything is async to avoid blocking,
+including `relative()` and `watched()`. Better error handling. Update to globule@0.2.0. No longer watches `cwd` by default. Added
+ `mode` option. Better `EMFILE` message. Avoids `ENOENT` errors with symlinks. All constructor arguments are optional.
+* 0.5.2 - Fix for ENOENT error with non-existent symlinks [BACKPORTED].
+* 0.5.1 - Use setImmediate (process.nextTick for node v0.8) to defer ready/nomatch events (@amasad).
+* 0.5.0 - Process is now kept alive while watching files. Emits a nomatch event when no files are matching.
+* 0.4.3 - Track file additions in newly created folders (@brett-shwom).
+* 0.4.2 - Fix .<span class="apidocCodeKeywordSpan">remove</span>() method to remove a single file in a directory (@kaelzhang). Fixing
+ Cannot call method &#x27;call&#x27; of undefined (@krasimir). Track new file additions within folders (@brett-shwom).
+* 0.4.1 - Fix watchDir not respecting close in race condition (@chrisirhc).
+* 0.4.0 - Drop support for node v0.6. Use globule for file matching. Avoid node v0.10 path.resolve/join errors. Register new files
+ when added to non-existent folder. Multiple instances can now poll the same files (@jpommerening).
+* 0.3.4 - Code clean up. Fix path must be strings errors (@groner). Fix incorrect added events (@groner).
+* 0.3.3 - Fix for multiple patterns with negate.
+* 0.3.2 - Emit `end` before removeAllListeners.
+* 0.3.1 - Fix added events within subfolder patterns.
+* 0.3.0 - Handle safewrite events, `forceWatchMethod` option removed, bug fixes and watch optimizations (@rgaskill).
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.Gaze.prototype.watched" id="apidoc.module.gaze.Gaze.prototype.watched">module gaze.Gaze.prototype.watched</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.Gaze.prototype.watched.watched" id="apidoc.element.gaze.Gaze.prototype.watched.watched">
+        function <span class="apidocSignatureSpan">gaze.Gaze.prototype.</span>watched
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">watched = function () {
+  return this._watched;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Watch all .js files/dirs in process.cwd()
+gaze(&#x27;**/*.js&#x27;, function(err, watcher) {
+// Files have all started watching
+// watcher === this
+
+// Get all watched files
+var watched = this.<span class="apidocCodeKeywordSpan">watched</span>();
+
+// On file changed
+this.on(&#x27;changed&#x27;, function(filepath) {
+  console.log(filepath + &#x27; was changed&#x27;);
+});
+
+// On file added
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.helper" id="apidoc.module.gaze.helper">module gaze.helper</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.helper.forEachSeries" id="apidoc.element.gaze.helper.forEachSeries">
+        function <span class="apidocSignatureSpan">gaze.helper.</span>forEachSeries
+        <span class="apidocSignatureSpan">(arr, iterator, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function forEachSeries(arr, iterator, callback) {
+  if (!arr.length) { return callback(); }
+  var completed = 0;
+  var iterate = function () {
+    iterator(arr[completed], function (err) {
+      if (err) {
+        callback(err);
+        callback = function () {};
+      } else {
+        completed += 1;
+        if (completed === arr.length) {
+          callback(null);
+        } else {
+          iterate();
+        }
+      }
+    });
+  };
+  iterate();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.helper.isDir" id="apidoc.element.gaze.helper.isDir">
+        function <span class="apidocSignatureSpan">gaze.helper.</span>isDir
+        <span class="apidocSignatureSpan">(dir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isDir(dir) {
+  if (typeof dir !== &#x27;string&#x27;) {
+    return false;
+  }
+  return (dir.slice(-(path.sep.length)) === path.sep);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.helper.markDir" id="apidoc.element.gaze.helper.markDir">
+        function <span class="apidocSignatureSpan">gaze.helper.</span>markDir
+        <span class="apidocSignatureSpan">(dir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function markDir(dir) {
+  if (typeof dir === &#x27;string&#x27; &#x26;&#x26;
+    dir.slice(-(path.sep.length)) !== path.sep &#x26;&#x26;
+    dir !== &#x27;.&#x27;) {
+    dir += path.sep;
+  }
+  return dir;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.helper.objectPush" id="apidoc.element.gaze.helper.objectPush">
+        function <span class="apidocSignatureSpan">gaze.helper.</span>objectPush
+        <span class="apidocSignatureSpan">(obj, key, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function objectPush(obj, key, val) {
+  if (obj[key] == null) {
+    obj[key] = [];
+  }
+  if (Array.isArray(val)) {
+    obj[key] = obj[key].concat(val);
+  } else if (val) {
+    obj[key].push(val);
+  }
+  obj[key] = helper.unique(obj[key]);
+  return obj[key];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.helper.unique" id="apidoc.element.gaze.helper.unique">
+        function <span class="apidocSignatureSpan">gaze.helper.</span>unique
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unique() {
+  var array = Array.prototype.concat.apply(Array.prototype, arguments);
+  var result = [];
+  for (var i = 0; i &#x3c; array.length; i++) {
+    if (result.indexOf(array[i]) === -1) {
+      result.push(array[i]);
+    }
+  }
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  obj[key] = [];
+}
+if (Array.isArray(val)) {
+  obj[key] = obj[key].concat(val);
+} else if (val) {
+  obj[key].push(val);
+}
+obj[key] = helper.<span class="apidocCodeKeywordSpan">unique</span>(obj[key]);
+return obj[key];
+};
+
+// Ensures the dir is marked with path.sep
+helper.markDir = function markDir (dir) {
+if (typeof dir === &#x27;string&#x27; &#x26;&#x26;
+  dir.slice(-(path.sep.length)) !== path.sep &#x26;&#x26;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.helper.unixifyPathSep" id="apidoc.element.gaze.helper.unixifyPathSep">
+        function <span class="apidocSignatureSpan">gaze.helper.</span>unixifyPathSep
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unixifyPathSep(filepath) {
+  return (process.platform === &#x27;win32&#x27;) ? String(filepath).replace(/\\/g, &#x27;/&#x27;) : filepath;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gaze.toString" id="apidoc.module.gaze.toString">module gaze.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gaze.toString.toString" id="apidoc.element.gaze.toString.toString">
+        function <span class="apidocSignatureSpan">gaze.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
