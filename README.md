@@ -1,4 +1,7 @@
-# api documentation for  [gaze (v1.1.2)](https://github.com/shama/gaze)  [![npm package](https://img.shields.io/npm/v/npmdoc-gaze.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gaze) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gaze.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gaze)
+# npmdoc-gaze
+
+#### api documentation for  [gaze (v1.1.2)](https://github.com/shama/gaze)  [![npm package](https://img.shields.io/npm/v/npmdoc-gaze.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gaze) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gaze.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gaze)
+
 #### A globbing fs.watch wrapper built from the best parts of other fine watch libs.
 
 [![NPM](https://nodei.co/npm/gaze.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/gaze)
